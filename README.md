@@ -21,8 +21,16 @@ into the file called *config* or you can set the environment variables
 7. Once the values are either set as environment variables or placed in the
 config file, you can run the client with python.
 
+### Dependencies
+
+Dependencies can be installed with pip
+
+- spotipy       - Used to interface with spotify
+- fuzzywuzzy    - Used for searching
+
 ### Usage
 
+Run the client.py file.
 When the client first starts, it will show a list of the user's saved tracks.
 
 - You can navigate the list by using the up and down arrow keys or page up and
