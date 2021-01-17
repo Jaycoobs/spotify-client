@@ -258,6 +258,10 @@ class Client:
         self.sp.pause_playback()
         self.setMessage("PLAYBACK PAUSED")
 
+    def queueTrack(self, track):
+        self.sp.add_to_queue(track.getUri())
+        self.setMessage("ADDED %s TO THE QUEUE" % (track.getName()))
+
     def skip(self):
         self.sp.next_track()
 
@@ -386,6 +390,12 @@ class Client:
                     self.shuffle(False)
                 else:
                     self.shuffle(True)
+        elif (c == "e"):
+            s = self.menu.getSelection()
+            if (type(s) != Track):
+                self.setMessage("ONLY TRACKS CAN BE QUEUED")
+            else:
+                self.queueTrack(s)
         elif (c == "\015"):
             s = self.menu.getSelection()
             if (type(s) == Track):
