@@ -396,7 +396,15 @@ class Client:
         display.clearScreen()
         while self.running:
             self.updateDisplay()
-            self.processInput()
+
+            try:
+                self.processInput()
+            except spotipy.exceptions.SpotifyException as e:
+                if ("NO_ACTIVE_DEVICE" in e.reason):
+                    self.setMessage("NO DEVICE SPECIFIED... PRESS d")
+                else:
+                    print("SPOTIFY EXCEPTION REASON: " + e.reason)
+                    raise e
         display.showCursor()
 
 if (__name__ == "__main__"):
