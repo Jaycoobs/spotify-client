@@ -9,7 +9,18 @@ from fuzzywuzzy import process
 
 import display
 from menu import Menu
-from getch import getch
+
+import sys, tty, termios
+
+def getch():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(fd)
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
 
 def strlen(s):
     return sum(1 + (unicodedata.east_asian_width(c) in "WFA") for c in s)
