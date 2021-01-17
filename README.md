@@ -2,7 +2,8 @@
 
 ### Before Using
 
-This client requires spotify premium.  
+This client requires spotify premium. 
+This client does not function on Windows (yet...).
 Before you can use it, you need to create an app on the developer
 page so that you can give the client permission to act on your behalf.
 
@@ -23,7 +24,8 @@ config file, you can run the client with python.
 
 ### Dependencies
 
-Dependencies can be installed with pip
+This client requires python 3.
+The following can be installed with pip.
 
 - spotipy       - Used to interface with spotify
 - fuzzywuzzy    - Used for searching
